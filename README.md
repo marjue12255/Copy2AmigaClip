@@ -34,3 +34,4 @@ Simple! Just press the keyboard shortcut you have configured. Your keyboard tool
 On the client side, there should be a logfile in /tmp and in t: on the Amiga. If you want to quit the process on the Amiga send a 'quit' (without quotes).
 ## ToDo
 - Writing the code for Windows and Linux.
+- Ability to end the task on Amiga.
