@@ -13,7 +13,7 @@ You may wonder why the text copied over the network is Base64 encoded. This is b
 ### Amiga
 Copy copy2amigaclip.rexx to s: and put this in your s:user-startup
 
-    `run <>nil: rx s:copy2amigaclip.rexx > nil:`
+    run <>nil: rx s:copy2amigaclip.rexx > nil:
 ### Mac
 Install Python 3 on your Mac if you want to use the Python version. I prefer Homebrew for that. For the shell version, nothing extra is needed.
 
@@ -28,5 +28,9 @@ Then use a shortcut tool like Keyboard Cowboy to set up a shortcut to start the 
 ToDo, but mainly the same as on Mac. I have not tested it yet!
 ### Windows
 ToDo, but mainly the same as on Mac. Obviously you can't use the shell version there. I have not tested it yet!
+## Usage
+Simple! Just press the keyboard shortcut you have configured. Your keyboard tool should then start the script.
+## Debug
+On the client side, there should be a logfile in /tmp and in t: on the Amiga. If you want to quit the process on the Amiga send a 'quit' (without quotes).
 ## ToDo
-- Writing the Code for Windows and Linux.
+- Writing the code for Windows and Linux.
