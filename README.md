@@ -11,7 +11,7 @@ You may wonder why the text copied over the network is Base64 encoded. This is b
 - You need some additional ARexx libs from Aminet. RexxTricks Lib: http://aminet.net/package/util/rexx/RexxTricks_386.lha and RXSocket Lib:   http://aminet.net/package/comm/tcp/rxsocket.
 ## Installation
 ### Amiga
-Copy copy2amigaclip.rexx to s: and put this in your s:user-startup
+Copy copy2amigaclip.rexx to s: and put this in your s:user-startup or run it in a shell.
 
     run <>nil: rx s:copy2amigaclip.rexx > nil:
 ### Mac
@@ -25,9 +25,18 @@ Then use a shortcut tool like Keyboard Cowboy to set up a shortcut to start the 
 
 ![alt text](image.png)
 ### Linux
-ToDo, but mainly the same as on Mac. I have not tested it yet!
+ToDo. I have not tested it yet!
+
+At least install these packages (Debian distros) for thy Python version.
+
+    apt install xclip
+    apt install xsel
+    apt install python3-qtpy
+    apt install python3-pyperclip
+
+In the Shell version you must change pbpaste to xsel or xclip.
 ### Windows
-ToDo, but mainly the same as on Mac. Obviously you can't use the shell version there. I have not tested it yet!
+ToDo. I have not tested it yet!
 ## Usage
 Simple! Just press the keyboard shortcut you have configured. Your keyboard tool should then start the script.
 ## Debug

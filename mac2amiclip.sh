@@ -26,7 +26,7 @@ LANG=de_DE.UTF-8
 HOST_AMIGA=192.168.20.193
 PORT_AMIGA=1111
 MAX_BYTES=4096
-LOGFILE=/tmp/mac2amiclip.log  äöäöäö,öd
+LOGFILE=/tmp/mac2amiclip.log
 AMIGA_CP='ISO-8859-1'
 
 export LANG
