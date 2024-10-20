@@ -26,13 +26,18 @@ Then use a shortcut tool like Keyboard Cowboy to set up a shortcut to start the 
 ![alt text](image.png)
 ### Linux
 ToDo. I have not tested it yet!
-
-At least install these packages (Debian distros) for thy Python version.
+####Debian based Distros
+At least install these packages
 
     apt install xclip
     apt install xsel
     apt install python3-qtpy
     apt install python3-pyperclip
+
+####Fedora based Distros
+
+    dfn install python-pyperclip
+    dfn install xclip
 
 In the Shell version you must change pbpaste to xsel or xclip.
 ### Windows
