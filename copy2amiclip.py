@@ -5,7 +5,7 @@
 # and send it over your network to your good old AmigaOS
 # Author: Marcus Juettner
 
-# This is the Mac part in Python
+# This is the Mac, Linux or Windows part in Python
 # */
 
 # /* Dependencies:
@@ -19,6 +19,7 @@
 
 # /* History:
 # 18. Oct. 2024: Version 0.1 (initial Version)
+# 21. Oct. 2024: Support for Wayland on Linux
 # */
 
 import os
@@ -26,12 +27,13 @@ import sys
 import base64
 import socket
 import pyperclip
+from datetime import datetime
 
 # Configuration
 HOST_AMIGA = '192.168.20.193'
 PORT_AMIGA = 1111
 MAX_BYTES = 4096
-LOGFILE = '/tmp/mac2amiclip.log'
+LOGFILE = '/tmp/copy2amiclip.log'
 AMIGA_CP = 'iso-8859-1'
 LOCAL_CP = 'utf-8'
 
@@ -45,19 +47,38 @@ def get_clipboard():
 
 # Write logfile
 def log_message(message):
-    logfile_path = os.path.join(os.path.dirname(__file__), LOGFILE)
-    with open(logfile_path, 'a') as logfile:
-        logfile.write(message + '\n')
+    now = datetime.now()
+    mydate = now.strftime("%d.%m.%Y %H:%M:%S")
+    with open(LOGFILE, 'a') as logfile:
+        logfile.write(mydate + ': ' + message + '\n')
 
 # Main
 def main():
+    # MacOS uses pbbaste which is detected automaticly
+    # Windows uses whatever which is detected automaticly
+    # Linux depends. If XOrg is used pyperclip uses xsel or xclip automaticly
+    # If Wayland is used a hint is neccesary.
+    if sys.platform == 'linux':
+        if 'XDG_SESSION_TYPE' in os.environ:
+            if os.environ['XDG_SESSION_TYPE'] == 'wayland':
+                log_message('Linux Wayland detected')
+                pyperclip.set_clipboard("wl-clipboard")
+            elif os.environ['XDG_SESSION_TYPE'] == 'x11':
+                log_message('Linux XOrg dedected')
+    elif sys.platform == 'darwin':
+        log_message('MacOS deteted')
+    elif sys.platform == 'windows':
+        log_message('Windows dedected')
+    else:
+        log_message('Platform ' + sys.platform + ' not supported (yet)')
+
     clipboard_content = get_clipboard()
 
     if not clipboard_content:
         log_message("clipboard is empty")
         sys.exit(0)
     else:
-        log_message(clipboard_content)
+        log_message('clip content: ' + clipboard_content)
 
     clipboard_content = clipboard_content[:MAX_BYTES]
 
