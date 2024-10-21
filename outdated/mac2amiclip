@@ -1,0 +1,57 @@
+; /* About:
+; Copy text on your modern MacOS
+; and send it over your network to your good old AmigaOS
+; Author: Marcus Juettner
+; This is the Amiga part in AmigaOS Shell
+; */
+; /* History:
+; 12. Oct. 2024: Version 0.1 (initial Version)
+; */
+
+.key input1
+
+set PORT 1111 ; port to listen on
+set MAXWAIT 3 ; time in sec to check the stopfile
+set i 1
+
+
+; --- Stopping
+
+if <input1> EQ "stop"
+  echo "" >ram:mac2amiclip.stop
+  quit
+endif
+
+
+; --- CleanUp
+
+if exists ram:mac2amiclip.stop
+  delete ram:mac2amiclip.stop
+endif
+
+
+; --- Main
+
+lab start
+  if exists ram:mac2amiclip.stop
+    echo "End"
+    delete ram:mac2amiclip.stop
+    quit
+  endif
+
+  echo "wait for clip ..."
+  set NCINPUT "`nc -l -p $PORT | base64 -d`"
+  echo "$NCINPUT"
+  if "$NCINPUT" EQ ""
+    echo "leer"
+  else
+    echo "$NCINPUT" NOLINE | copy2clip
+  endif
+
+  echo ""
+
+  set i `eval $i + 1`
+skip back start
+
+
+

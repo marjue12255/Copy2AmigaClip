@@ -8,15 +8,6 @@
 # This is the Mac part in shell
 # */
 
-# /* Dependencies:
-# Amiga:
-# AmigaOS:        Developed and tested with AmigaOS 3.2
-# RexxTricks Lib: http://aminet.net/package/util/rexx/RexxTricks_386.lha
-# RXSocket Lib:   http://aminet.net/package/comm/tcp/rxsocket
-# Mac:
-# MacOS:          Developed with MacOS 15
-# */
-
 # /* History:
 # 18. Oct. 2024: Version 0.1 (initial Version)
 # */
