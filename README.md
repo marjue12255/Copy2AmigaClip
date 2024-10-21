@@ -1,5 +1,5 @@
 # Copy2AmiClip
-Copy clipboard on Mac, Windows or Linux to your Amiga over network.
+Copy clipboard text from your modern Mac, Windows or Linux to your vintage Amiga over network.
 ## About and Why
 When I started to revive my Amiga, I often had the situation that I researched things on my modern computer (a Mac in my case) that I would have liked to transfer quickly to my Amiga. Things like code snippets, URLs, ....
 
@@ -22,17 +22,17 @@ You may wonder why the text copied over the network is Base64 encoded. This is b
 - Set the IP, Port and Codepage to suit your needs.
 - Then use a shortcut tool like Keyboard Cowboy to set up a shortcut to start the script whenever you want to send your clipboard to your Amiga.
 
-![alt text](KeyboardCowboy.jpeg)
+![KeyboardCowboy config screen](KeyboardCowboy.jpeg)
 ### Linux
 - Install some packages.
-#### Debian based Distros
+#### Debian based distros
 
     apt install xclip
     apt install xsel
     apt install wl-clipboard
     apt install python3-pyperclip
 
-#### Fedora based Distros
+#### Fedora based distros
 
     dfn install xclip
     dfn install xsel
