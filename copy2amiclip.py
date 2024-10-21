@@ -67,7 +67,7 @@ def main():
                 log_message('Linux XOrg dedected')
     elif sys.platform == 'darwin':
         log_message('MacOS deteted')
-    elif sys.platform == 'windows':
+    elif sys.platform == 'win32':
         log_message('Windows dedected')
     else:
         log_message('Platform ' + sys.platform + ' not supported (yet)')
