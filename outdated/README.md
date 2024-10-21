@@ -1,1 +1,1 @@
-test
+These are the old scripts in Shell for the Mac and in Amiga-DOS for the Amiga.

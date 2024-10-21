@@ -148,19 +148,19 @@ decodeBase64:
   do i = 1 to length(base64string) by 4
     part = substr(base64string, i, 4)
 
-    /* Jedes Zeichen in eine 6-Bit-BinÃ¤rzahl umwandeln */
+    /* Jedes Zeichen in eine 6-Bit-Binärzahl umwandeln */
     do j = 1 to length(part)
       char = substr(part, j, 1)
       index = decodeBase64Char(char)
-      binaryPart = D2B(index, 6) /* Konvertiere in 6-Bit-BinÃ¤rformat */
+      binaryPart = D2B(index, 6) /* Konvertiere in 6-Bit-Binärformat */
       binaryString = binaryString || binaryPart
     end
 
-    /* Zerlege den kombinierten BinÃ¤rstring in 8-Bit-BlÃ¶cke (Bytes) */
+    /* Zerlege den kombinierten Binärstring in 8-Bit-Blöcke (Bytes) */
     do while length(binaryString) >= 8
       byte = substr(binaryString, 1, 8)
       binaryString = substr(binaryString, 9)
-      decodedChar = B2D(byte)  /* Konvertiere BinÃ¤r -> Dezimal */
+      decodedChar = B2D(byte)  /* Konvertiere Binär -> Dezimal */
       decodedString = decodedString || D2C(decodedChar)
     end
   end
