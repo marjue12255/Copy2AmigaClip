@@ -22,12 +22,14 @@
 # 21. Oct. 2024: Support for Wayland on Linux
 # */
 
+"""Modules providing functions neded here."""
+
 import os
 import sys
 import base64
 import socket
-import pyperclip
 from datetime import datetime
+import pyperclip
 
 # Configuration
 HOST_AMIGA = '192.168.20.193'
@@ -39,6 +41,7 @@ LOCAL_CP = 'utf-8'
 
 # Get Clipboard content
 def get_clipboard():
+    """Function to get clipboard content."""
     try:
         return pyperclip.paste()
     except Exception as e:
@@ -47,13 +50,15 @@ def get_clipboard():
 
 # Write logfile
 def log_message(message):
+    """Function to write a simple log"""
     now = datetime.now()
     mydate = now.strftime("%d.%m.%Y %H:%M:%S")
-    with open(LOGFILE, 'a') as logfile:
+    with open(LOGFILE, "a", encoding=LOCAL_CP) as logfile:
         logfile.write(mydate + ': ' + message + '\n')
 
 # Main
 def main():
+    """Main"""
     # MacOS uses pbbaste which is detected automaticly
     # Windows uses whatever which is detected automaticly
     # Linux depends. If XOrg is used pyperclip uses xsel or xclip automaticly
